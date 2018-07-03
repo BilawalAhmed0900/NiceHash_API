@@ -28,7 +28,7 @@
 
 # Delphi compiler-generated binaries (safe to delete)
 *.exe
-# *.dll // OpenSSL dll needed
+*.dll
 *.bpl
 *.bpi
 *.dcp
