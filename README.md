@@ -1,6 +1,10 @@
 # NiceHash_API
 NiceHash API implementation in Delphi. This was made at version 1.2.7. If any new function is created, ask me to add it or you can contribute yourself.
 
+# Requirements
+This library requires OpenSSL to work, you can download the dll [Here](https://indy.fulgan.com/SSL/).
+Put respective dll close to binary file
+
 # Uses
 You can use the library from the file `NiceHashAPI.pas`
 
