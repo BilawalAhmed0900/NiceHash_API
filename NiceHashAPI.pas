@@ -262,15 +262,15 @@ begin
   Result := GetHTMLSource(URL);
 end;
 
-
 function NiceAPI.SetNewLimit(Location: LOCATION_AVAILABLE;
   Algorithm: ALGORITHM_AVAILABLE; OrderId: String; Limit: double): String;
 var
   URL: String;
 begin
-  URL := Format('%s?method=%s&location=%d&algo=%d&order=%s&limit=%f',
-    [BASE_URL, 'orders.set.limit', Integer(Location), Integer(Algorithm),
-    OrderId, Limit]);
+  URL := Format
+    ('%s?method=%s&id=%s&key=%s&location=%d&algo=%d&order=%s&limit=%f',
+    [BASE_URL, 'orders.set.limit', Self.ID, Self.Key, Integer(Location),
+    Integer(Algorithm), OrderId, Limit]);
   Result := GetHTMLSource(URL);
 end;
 
@@ -279,9 +279,10 @@ function NiceAPI.SetNewPrice(Location: LOCATION_AVAILABLE;
 var
   URL: String;
 begin
-  URL := Format('%s?method=%s&location=%d&algo=%d&order=%s&price=%f',
-    [BASE_URL, 'orders.set.price', Integer(Location), Integer(Algorithm),
-    OrderId, Price]);
+  URL := Format
+    ('%s?method=%s&id=%s&key=%s&location=%d&algo=%d&order=%s&price=%f',
+    [BASE_URL, 'orders.set.price', Self.ID, Self.Key, Integer(Location),
+    Integer(Algorithm), OrderId, Price]);
   Result := GetHTMLSource(URL);
 end;
 
@@ -313,9 +314,9 @@ function NiceAPI.DecreasePrice(Location: LOCATION_AVAILABLE;
 var
   URL: String;
 begin
-  URL := Format('%s?method=%s&location=%d&algo=%d&order=%s',
-    [BASE_URL, 'orders.set.price.decrease', Integer(Location),
-    Integer(Algorithm), OrderId]);
+  URL := Format('%s?method=%s&id=%s&key=%s&location=%d&algo=%d&order=%s',
+    [BASE_URL, 'orders.set.price.decrease', Self.ID, Self.Key,
+    Integer(Location), Integer(Algorithm), OrderId]);
   Result := GetHTMLSource(URL);
 end;
 
@@ -324,9 +325,10 @@ function NiceAPI.RefillOrder(Location: LOCATION_AVAILABLE;
 var
   URL: String;
 begin
-  URL := Format('%s?method=%s&location=%d&algo=%d&order=%s&amount=%f',
-    [BASE_URL, 'orders.refill', Integer(Location), Integer(Algorithm),
-    OrderId, Amount]);
+  URL := Format
+    ('%s?method=%s&id=%s&key=%s&location=%d&algo=%d&order=%s&amount=%f',
+    [BASE_URL, 'orders.refill', Self.ID, Self.Key, Integer(Location),
+    Integer(Algorithm), OrderId, Amount]);
   Result := GetHTMLSource(URL);
 end;
 
@@ -335,9 +337,9 @@ function NiceAPI.RemoveOrder(Location: LOCATION_AVAILABLE;
 var
   URL: String;
 begin
-  URL := Format('%s?method=%s&location=%d&algo=%d&order=%s',
-    [BASE_URL, 'orders.remove', Integer(Location), Integer(Algorithm),
-    OrderId]);
+  URL := Format('%s?method=%s&id=%s&key=%s&location=%d&algo=%d&order=%s',
+    [BASE_URL, 'orders.remove', Self.ID, Self.Key, Integer(Location),
+    Integer(Algorithm), OrderId]);
   Result := GetHTMLSource(URL);
 end;
 
